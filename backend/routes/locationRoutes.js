@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const locationController = require('../controllers/locationController');
-// Middleware can be imported here for authentication
-// const { protect, admin } = require('../middleware/authMiddleware');
+// Adding authentication middleware
+const { protect, admin } = require('../middleware/authMiddleware');
 
 // List all pickup/dropoff locations
 router.get('/', locationController.getLocations);
@@ -14,15 +14,12 @@ router.get('/:id', locationController.getLocationById);
 router.get('/:id/availability', locationController.getLocationAvailability);
 
 // Create a new location (Admin)
-// In a real app, protect and admin middleware would be used here
-router.post('/', locationController.createLocation);
+router.post('/', protect, admin, locationController.createLocation);
 
 // Update a location (Admin)
-// In a real app, protect and admin middleware would be used here
-router.put('/:id', locationController.updateLocation);
+router.put('/:id', protect, admin, locationController.updateLocation);
 
 // Delete a location (Admin)
-// In a real app, protect and admin middleware would be used here
-router.delete('/:id', locationController.deleteLocation);
+router.delete('/:id', protect, admin, locationController.deleteLocation);
 
 module.exports = router;

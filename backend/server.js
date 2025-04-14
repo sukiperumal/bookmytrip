@@ -6,6 +6,13 @@ const cors = require('cors');
 const connectDB = require('./config/db');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 
+// Import models to register schemas
+// This prevents the "Schema hasn't been registered" errors
+require('./models/User');
+require('./models/Vehicle');
+require('./models/Booking');
+require('./models/Location');
+
 // Import routes
 const vehicleRoutes = require('./routes/vehicleRoutes');
 const bookingRoutes = require('./routes/bookingRoutes');
