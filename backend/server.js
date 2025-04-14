@@ -17,7 +17,6 @@ require('./models/Location');
 const vehicleRoutes = require('./routes/vehicleRoutes');
 const bookingRoutes = require('./routes/bookingRoutes');
 const locationRoutes = require('./routes/locationRoutes');
-const userRoutes = require('./routes/userRoutes');
 
 // Load environment variables
 dotenv.config();
@@ -41,18 +40,18 @@ if (process.env.NODE_ENV !== 'production') {
 app.use('/api/vehicles', vehicleRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/locations', locationRoutes);
-app.use('/api/users', userRoutes);
 
 // Base route
 app.get('/', (req, res) => {
   res.json({
     message: 'Vehicle Rental Management API',
     version: '1.0.0',
+    author: 'V Suki Perumal | PES1UG22AM180 | AIML - C Section',
     endpoints: {
       vehicles: '/api/vehicles',
       bookings: '/api/bookings',
       locations: '/api/locations',
-      users: '/api/users',
+      webhooks: '/api/webhooks'
     }
   });
 });
