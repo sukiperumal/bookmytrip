@@ -1,33 +1,88 @@
 "use client";
 
 import type React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import {
   FaEnvelope,
   FaLock,
   FaGoogle,
   FaFacebook,
   FaApple,
+  FaExclamationCircle,
+  FaUser,
 } from "react-icons/fa";
 import { useTheme } from "../contexts/ThemeContext";
 import "../styles/login.css";
 
 const LoginPage: React.FC = () => {
   const { theme } = useTheme();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Extract the redirect URL if it exists
+  const redirectTo =
+    location.state?.redirectTo ||
+    new URLSearchParams(location.search).get("redirect") ||
+    "/";
+
+  useEffect(() => {
+    // Check if user is already logged in
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate(redirectTo); // Redirect already logged in users
+    }
+  }, [navigate, redirectTo]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login/signup logic
-    console.log(isLogin ? "Login" : "Signup", { email, password, name });
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const endpoint = isLogin ? "/api/users/login" : "/api/users/register";
+
+      const requestBody = isLogin
+        ? { email, password }
+        : { name, email, password };
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Authentication failed");
+      }
+
+      // Store user data and token
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      // Redirect user after successful login/registration
+      navigate(redirectTo);
+    } catch (err: any) {
+      setError(err.message || "Something went wrong. Please try again.");
+      console.error("Authentication error:", err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
+    setError(null); // Clear any error when switching forms
   };
 
   return (
@@ -55,11 +110,19 @@ const LoginPage: React.FC = () => {
             </p>
           </div>
 
+          {error && (
+            <div className="auth-error">
+              <FaExclamationCircle />
+              <p>{error}</p>
+            </div>
+          )}
+
           <form onSubmit={handleSubmit} className="auth-form">
             {!isLogin && (
               <div className="form-group">
                 <label htmlFor="name">Full Name</label>
                 <div className="input-with-icon">
+                  <FaUser className="input-icon" />
                   <input
                     id="name"
                     type="text"
@@ -108,8 +171,12 @@ const LoginPage: React.FC = () => {
               </div>
             )}
 
-            <button type="submit" className="auth-button">
-              {isLogin ? "Sign In" : "Create Account"}
+            <button type="submit" className="auth-button" disabled={isLoading}>
+              {isLoading
+                ? "Processing..."
+                : isLogin
+                ? "Sign In"
+                : "Create Account"}
             </button>
 
             <div className="auth-divider">

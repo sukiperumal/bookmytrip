@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import VehicleRentalPage from "./pages/VehicleRentalPage";
 import VehicleDetailsPage from "./pages/VehicleDetailsPage";
+import MyBookingsPage from "./pages/MyBookingsPage";
 import SupportPage from "./pages/SupportPage";
 import AboutPage from "./pages/AboutPage";
 import "./styles/global.css";
@@ -23,6 +24,7 @@ const App: React.FC = () => {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/vehicles" element={<VehicleRentalPage />} />
               <Route path="/vehicles/:id" element={<VehicleDetailsPage />} />
+              <Route path="/my-bookings" element={<MyBookingsPage />} />
               <Route path="/support" element={<SupportPage />} />
               <Route path="/about" element={<AboutPage />} />
             </Routes>
