@@ -1,6 +1,16 @@
 # bookmytrip
 Tourism Website with Call Center Support and Vehicle Rental Management Services.
 
+Tech Stack:-
+
+BACKEND:- 
+Node.js: Server-side JavaScript runtime
+Express.js: Web application framework
+MongoDB: NoSQL database
+
+FRONTEND:-
+React
+
 List of Endpoints Implemented:- 
 
 Vehicle Rentals Management Microservice:-
