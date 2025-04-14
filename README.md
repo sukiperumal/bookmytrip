@@ -1,6 +1,8 @@
 # bookmytrip
 Tourism Website with Call Center Support and Vehicle Rental Management Services.
 
+List of Endpoints Implemented:- 
+
 Vehicle Rentals Management Microservice:-
 1. Vehicle Management
 
