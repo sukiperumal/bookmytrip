@@ -1,0 +1,230 @@
+.login-page {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .login-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1000px;
+    width: 100%;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+  }
+  
+  .login-image-container {
+    position: relative;
+    height: 100%;
+  }
+  
+  .login-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+  }
+  
+  .image-overlay h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .login-form-container {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .form-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-header p {
+    color: var(--text-light);
+  }
+  
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-group label {
+    font-weight: 500;
+  }
+  
+  .input-with-icon {
+    position: relative;
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+  }
+  
+  .input-with-icon input {
+    width: 100%;
+    padding: 0.8rem 1rem 0.8rem 2.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .forgot-password {
+    text-align: right;
+    margin-top: -0.5rem;
+  }
+  
+  .forgot-password a {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+  }
+  
+  .auth-button {
+    padding: 0.8rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .auth-button:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .auth-divider {
+    position: relative;
+    text-align: center;
+    margin: 1.5rem 0;
+  }
+  
+  .auth-divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--border-color);
+  }
+  
+  .auth-divider span {
+    position: relative;
+    background-color: var(--background-color);
+    padding: 0 1rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+  }
+  
+  .social-auth {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  .social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: transparent;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .social-button:hover {
+    background-color: var(--background-alt);
+  }
+  
+  .social-button.google:hover {
+    border-color: #db4437;
+    color: #db4437;
+  }
+  
+  .social-button.facebook:hover {
+    border-color: #4267b2;
+    color: #4267b2;
+  }
+  
+  .social-button.apple:hover {
+    border-color: #000;
+    color: #000;
+  }
+  
+  .auth-switch {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  
+  .auth-switch p {
+    color: var(--text-light);
+  }
+  
+  .switch-button {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .login-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .login-image-container {
+      display: none;
+    }
+  
+    .social-auth {
+      grid-template-columns: 1fr;
+    }
+  }
+  

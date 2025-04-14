@@ -1,0 +1,375 @@
+.vehicle-details-page {
+    padding: 2rem;
+  }
+  
+  .back-navigation {
+    margin-bottom: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: var(--transition);
+  }
+  
+  .back-link:hover {
+    color: var(--primary-color);
+  }
+  
+  .vehicle-details-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "gallery info"
+      "gallery booking";
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .vehicle-gallery {
+    grid-area: gallery;
+  }
+  
+  .main-image {
+    position: relative;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  
+  .main-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+  
+  .image-actions {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.8rem;
+  }
+  
+  .action-button {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+  }
+  
+  .action-button:hover {
+    background-color: white;
+    color: var(--primary-color);
+  }
+  
+  .thumbnail-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  
+  .thumbnail {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: var(--transition);
+  }
+  
+  .thumbnail.active {
+    border-color: var(--primary-color);
+  }
+  
+  .thumbnail img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+  }
+  
+  .vehicle-info {
+    grid-area: info;
+  }
+  
+  .vehicle-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .vehicle-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .vehicle-meta {
+    display: flex;
+    gap: 1.5rem;
+    color: var(--text-light);
+  }
+  
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  
+  .rating svg {
+    color: var(--accent-color);
+  }
+  
+  .location {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  
+  .vehicle-description {
+    margin-bottom: 2rem;
+  }
+  
+  .vehicle-description h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .vehicle-description p {
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+  
+  .vehicle-specs {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .spec-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .spec-icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+  }
+  
+  .spec-detail {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .spec-label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+  }
+  
+  .spec-value {
+    font-weight: 500;
+  }
+  
+  .vehicle-features h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .feature-icon {
+    color: var(--success-color);
+  }
+  
+  .booking-panel {
+    grid-area: booking;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+    align-self: start;
+  }
+  
+  .booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .booking-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+  }
+  
+  .booking-price .price {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+  
+  .booking-price .period {
+    color: var(--text-light);
+  }
+  
+  .booking-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-weight: 500;
+  }
+  
+  .booking-rating svg {
+    color: var(--accent-color);
+  }
+  
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .date-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-weight: 500;
+  }
+  
+  .form-group input {
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .booking-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1rem 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-light);
+  }
+  
+  .summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .book-button {
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .book-button:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    gap: 1rem;
+  }
+  
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--background-alt);
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .not-found-container {
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+  
+  @media (max-width: 992px) {
+    .vehicle-details-container {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "gallery"
+        "info"
+        "booking";
+    }
+  
+    .main-image img {
+      height: 300px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .date-inputs {
+      grid-template-columns: 1fr;
+    }
+  
+    .vehicle-specs {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+  
